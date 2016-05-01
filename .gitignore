@@ -45,3 +45,16 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Umfundi directories
+backup
+files
+ftp
+kindle
+sqlite
+vector
+www
+
+# Umfundi files
+*.csv
+*.txt
