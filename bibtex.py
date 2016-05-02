@@ -487,6 +487,12 @@ if len(vAsin) > 0:
     print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------
+# References
+# --------------------------------------------------------
+vDokuTemplate = '{{page>'+vDocType+':references:'+vCiteKey+'}}'
+print (vDokuTemplate,'\n')
+
+# --------------------------------------------------------
 # Links here
 # --------------------------------------------------------
 vDokuTemplate = '===== Links here ====='
@@ -503,12 +509,6 @@ print (vDokuTemplate,'\n')
 s = vKeywords
 s = s.replace(",",", ")
 vDokuTemplate = s
-print (vDokuTemplate,'\n')
-
-# --------------------------------------------------------
-# References
-# --------------------------------------------------------
-vDokuTemplate = '{{page>'+vDocType+':references:'+vCiteKey+'}}'
 print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------

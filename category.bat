@@ -9,4 +9,4 @@ CALL footnotes thesis
 REM Create and upload the category pages
 CALL categories
 
-ECHO ===============================================================================
+ECHO ==================================================================
