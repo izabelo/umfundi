@@ -417,7 +417,7 @@ elif len(vDoi) > 0:
 else:
     # Citation: PDF File name (TODO: Create as a link to the PDF file)
     #vDokuTemplate+=vFile
-    vDokuTemplate+=vDocType
+    vDokuTemplate+=vDocType.title()
 
 vDokuTemplate+=' ^'
 print (vDokuTemplate)
