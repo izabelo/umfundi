@@ -287,7 +287,7 @@ if vDocType == 'book':
 
     vAuthorDisplay = s
     # If more than one author add et al.
-    if len(vAuthorList) > 2:
+    if len(vAuthorList) > 1:
         vAuthorDisplay+=' et al.'
 
 # If title is more than 80 characters then shorten
