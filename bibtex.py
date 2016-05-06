@@ -397,7 +397,7 @@ elif vDocType == 'thesis':
     vDokuTemplate+=vAuthorDisplay+' ('+vYear+'). //'+vTitle+'//'
     vDokuTemplate+=' ('
     if not vType == '':
-        vDokuTemplate+=vType+' thesis, '
+        vDokuTemplate+=vType+' Thesis, '
     if not vSchool == '':
         vDokuTemplate+=vSchool+', '
     if not vAddress == '':
