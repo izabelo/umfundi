@@ -335,6 +335,13 @@ else:
         vAuthorDisplay+=', [[author:'+vAuthorLink[x]+'|'+vAuthorChicago[x]+']]'
 
 # --------------------------------------------------------
+# Show all authors if et al. is used in citation
+# --------------------------------------------------------
+if len(vAuthorList) > 5:
+    vDokuTemplate = '== '+vAuthor+' =='
+    print (vDokuTemplate,'\n')
+    
+# --------------------------------------------------------
 # Show heading for abstract (if there is an abstract)
 # --------------------------------------------------------
 if len(vAbstract) > 0:
@@ -354,7 +361,7 @@ if len(vTitle) > 80:
 if len(vAbstract) > 0:
     vDokuTemplate = '//'+vAbstract+'//'
     print (vDokuTemplate,'\n')
-   
+
 # --------------------------------------------------------
 # Citation
 # --------------------------------------------------------
