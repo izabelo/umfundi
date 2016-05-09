@@ -397,7 +397,7 @@ elif vDocType == 'thesis':
     vDokuTemplate+=vAuthorDisplay+' ('+vYear+'). //'+vTitle+'//'
     vDokuTemplate+=' ('
     if not vType == '':
-        vDokuTemplate+=vType+' Thesis, '
+        vDokuTemplate+=vType+', '
     if not vSchool == '':
         vDokuTemplate+=vSchool+', '
     if not vAddress == '':
@@ -416,7 +416,13 @@ if len(vAsin) > 0:
 elif len(vUrl) > 0:
     vDokuTemplate+='[['
     vDokuTemplate+=vUrl
-    vDokuTemplate+='|URL]]'
+    vDokuTemplate+='|'
+    # Show Type text if present else show the word "URL"
+    if not vType == '':
+        vDokuTemplate+=vType
+    else:    
+        vDokuTemplate+='URL'
+    vDokuTemplate+=']]'
 elif len(vDoi) > 0:
     vDokuTemplate+='[['
     vDokuTemplate+='http://dx.doi.org/'+vDoi
