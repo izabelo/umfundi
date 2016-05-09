@@ -342,9 +342,9 @@ if len(vTitle) > 80:
     print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------
-# Show all authors if et al. is used in citation
+# Show all authors under title if more than one author
 # --------------------------------------------------------
-if len(vAuthorList) > 5:
+if len(vAuthorList) > 1:
     vDokuTemplate = '== '+vAuthor+' =='
     print (vDokuTemplate,'\n')
     
