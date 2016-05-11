@@ -413,6 +413,7 @@ if len(vAsin) > 0:
     vDokuTemplate+='[['
     vDokuTemplate+='http://www.amazon.com/dp/'+vAsin
     vDokuTemplate+='|ASIN]]'
+    vDokuTemplate+=' ((https://kindle.amazon.com/your_highlights_and_notes/'+vAsin+'))'
 elif len(vUrl) > 0:
     vDokuTemplate+='[['
     vDokuTemplate+=vUrl
