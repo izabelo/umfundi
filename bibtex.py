@@ -345,7 +345,7 @@ if len(vTitle) > 80:
 # Show all authors under title if more than one author
 # --------------------------------------------------------
 if len(vAuthorList) > 1:
-    vDokuTemplate = '== '+vAuthor+' =='
+    vDokuTemplate = '== Authors: '+vAuthor+' =='
     print (vDokuTemplate,'\n')
     
 # --------------------------------------------------------
