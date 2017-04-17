@@ -74,7 +74,7 @@ vDokuTemplate+=' at '
 vDokuTemplate+=time.strftime("%H:%M:%S")
 vDokuTemplate+=' */'
 print (vDokuTemplate)
-print ('\n\r', end=' ')
+print ('\n\r')
 
 # --------------------------------------------------------
 # Close the input file
