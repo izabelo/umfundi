@@ -1,0 +1,2 @@
+# umfundi
+Umfundi Student Wiki
