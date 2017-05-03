@@ -81,8 +81,8 @@ print ('')
 # --------------------------------------------------------
 # Print Footer
 # --------------------------------------------------------
-vDokuTemplate = '//'
-vDokuTemplate+='[['+vKindleAmazon+'|Kindle highlights]]'
+vDokuTemplate = "//"
+vDokuTemplate+="[["+vKindleAmazon+'|Kindle highlights]]'
 vDokuTemplate+=' automatically extracted on '
 vDokuTemplate+=time.strftime("%d/%m/%Y")
 vDokuTemplate+=' at '
