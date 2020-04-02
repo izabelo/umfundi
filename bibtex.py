@@ -6,7 +6,7 @@ import time
 # Get the directory and filename as input parameters
 # --------------------------------------------------------
 inputfiledir = sys.argv[1]
-inputfiledir+='\\'
+inputfiledir+='/'
 inputfilename = r''
 inputfilename+=inputfiledir
 inputfilename+=sys.argv[2]
@@ -59,7 +59,7 @@ vYear = 'n.d.'
 # --------------------------------------------------------
 # Read through the file
 # --------------------------------------------------------
-while 1:
+while True:
     line=fin.readline() # check for EOF
     if not line: break
 
@@ -243,6 +243,7 @@ vAuthorLink = []
 for x in range(0, len(vAuthorList)):
     s = vAuthorList[x].lower()
     s = s.replace(",","")
+    s = s.replace(".","")
     s = s.replace(" ","_")
     vAuthorLink.append(s)
 
@@ -327,13 +328,13 @@ print (vDokuTemplate,'\n')
 if len(vAuthorChicago) == 0:
     vAuthorDisplay = ''
 elif len(vAuthorChicago) == 1:
-    vAuthorDisplay = '[[author:'+vAuthorLink[0]+'|'+vAuthorChicago[0]+']]'
+    vAuthorDisplay = '[[umfundi:author:'+vAuthorLink[0]+'|'+vAuthorChicago[0]+']]'
 elif len(vAuthorChicago) > 5:
-    vAuthorDisplay = '[[author:'+vAuthorLink[0]+'|'+vAuthorChicago[0]+']] et al.'
+    vAuthorDisplay = '[[umfundi:author:'+vAuthorLink[0]+'|'+vAuthorChicago[0]+']] et al.'
 else:
-    vAuthorDisplay = '[[author:'+vAuthorLink[0]+'|'+vAuthorChicago[0]+']]'
+    vAuthorDisplay = '[[umfundi:author:'+vAuthorLink[0]+'|'+vAuthorChicago[0]+']]'
     for x in range(1, len(vAuthorChicago)):
-        vAuthorDisplay+=', [[author:'+vAuthorLink[x]+'|'+vAuthorChicago[x]+']]'
+        vAuthorDisplay+=', [[umfundi:author:'+vAuthorLink[x]+'|'+vAuthorChicago[x]+']]'
 
 # --------------------------------------------------------
 # Show full title if it was shortened in the heading
@@ -366,7 +367,7 @@ if len(vAbstract) > 0:
 # --------------------------------------------------------
 # Citation
 # --------------------------------------------------------
-vDokuTemplate = '^ Citation | '
+vDokuTemplate = '^ Citation ^ '
 
 # Citation: Book
 if vDocType == 'book':
@@ -471,7 +472,7 @@ if len(vMendeleyTags) > 0:
 # For books and theses: Add an overview section for Table of Contents etc.
 # --------------------------------------------------------
 if vDocType == 'book' or vDocType == 'thesis':
-    vDokuTemplate = '{{page>'+vDocType+':overview:'+vCiteKey+'}}'
+    vDokuTemplate = '{{page>umfundi:'+vDocType+':overview:'+vCiteKey+'}}'
     print (vDokuTemplate,'\n')
     
 # --------------------------------------------------------
@@ -479,32 +480,26 @@ if vDocType == 'book' or vDocType == 'thesis':
 # --------------------------------------------------------
 vDokuTemplate = '===== Key ideas ====='
 print (vDokuTemplate)
-vDokuTemplate = '{{page>'+vDocType+':keyideas:'+vCiteKey+'}}'
-print (vDokuTemplate,'\n')
+vDokuTemplate = '{{page>umfundi:'+vDocType+':keyideas:'+vCiteKey+'}}'
+print (vDokuTemplate)
 
 # --------------------------------------------------------
 # Notes
 # --------------------------------------------------------
-vDokuTemplate = '{{page>'+vDocType+':notes:'+vCiteKey+'}}'
-print (vDokuTemplate,'\n')
+vDokuTemplate = '{{page>umfundi:'+vDocType+':notes:'+vCiteKey+'}}'
+print (vDokuTemplate)
     
-# --------------------------------------------------------
-# Images
-# --------------------------------------------------------
-vDokuTemplate = '{{page>'+vDocType+':images:'+vCiteKey+'}}'
-print (vDokuTemplate,'\n')
-
 # --------------------------------------------------------
 # Kindle notes (if they exist and only for books)
 # --------------------------------------------------------
 if len(vAsin) > 0:
-    vDokuTemplate = '{{page>'+vDocType+':kindle:'+vCiteKey+'}}'
-    print (vDokuTemplate,'\n')
+    vDokuTemplate = '{{page>umfundi:'+vDocType+':kindle:'+vCiteKey+'}}'
+    print (vDokuTemplate)
 
 # --------------------------------------------------------
-# References
+# Images
 # --------------------------------------------------------
-vDokuTemplate = '{{page>'+vDocType+':references:'+vCiteKey+'}}'
+vDokuTemplate = '{{page>umfundi:'+vDocType+':images:'+vCiteKey+'}}'
 print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------
@@ -519,11 +514,17 @@ print (vDokuTemplate,'\n')
 # Keywords
 # --------------------------------------------------------
 vDokuTemplate = '== Keywords: =='
-print (vDokuTemplate,'\n')
+print (vDokuTemplate)
 # Replace comma with comma space
 s = vKeywords
 s = s.replace(",",", ")
 vDokuTemplate = s
+print (vDokuTemplate,'\n')
+
+# --------------------------------------------------------
+# References
+# --------------------------------------------------------
+vDokuTemplate = '{{page>umfundi:'+vDocType+':references:'+vCiteKey+'}}'
 print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------
@@ -534,10 +535,10 @@ vDokuTemplate+=time.strftime("%d/%m/%Y")
 vDokuTemplate+=' at '
 vDokuTemplate+=time.strftime("%H:%M:%S")
 vDokuTemplate+=' */'
-print (vDokuTemplate)
+print (vDokuTemplate,'\n')
 
 # Print No cache for debugging
-#print ('~~NOCACHE~~\n\r', end=' ')
+print ('~~NOCACHE~~')
 
 # --------------------------------------------------------
 # Close the input file
