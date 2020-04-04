@@ -1,12 +1,12 @@
 # author.py
 import sys
 import time
-
+ 
 # --------------------------------------------------------
 # Get the directory and filename as input parameters
 # --------------------------------------------------------
 inputfiledir = sys.argv[1]
-inputfiledir+='\\'
+inputfiledir+='/'
 inputfilename = r''
 inputfilename+=inputfiledir
 inputfilename+=sys.argv[2]
