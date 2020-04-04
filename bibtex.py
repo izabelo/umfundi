@@ -254,7 +254,7 @@ print ('/*',vDocType,'*/')
 print ('~~NOTOC~~','\n')
 
 # --------------------------------------------------------
-# Prepare h1 heading
+# Prepare title heading
 # --------------------------------------------------------
 # Find the first author surname
 vAuthorDisplay = ''
@@ -315,11 +315,11 @@ vTitleHeading = s
      
 # Show surname and title in page heading
 if vDocType == 'book':
-    vDokuTemplate = '====== '+vTitleHeading+' ('+vYear+')'+vAuthorDisplay+' ======'
+    vDokuTemplate = '===== '+vTitleHeading+' ('+vYear+')'+vAuthorDisplay+' ====='
 elif vDocType == 'thesis':
-    vDokuTemplate = '====== '+vAuthorAPA[0]+' ('+vYear+') '+vTitleHeading+' ======'
+    vDokuTemplate = '===== '+vAuthorAPA[0]+' ('+vYear+') '+vTitleHeading+' ====='
 else:
-    vDokuTemplate = '====== '+vAuthorDisplay+' ('+vYear+') '+vTitleHeading+' ======'
+    vDokuTemplate = '===== '+vAuthorDisplay+' ('+vYear+') '+vTitleHeading+' ====='
 print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------
@@ -340,21 +340,21 @@ else:
 # Show full title if it was shortened in the heading
 # --------------------------------------------------------
 if len(vTitle) > 80:
-    vDokuTemplate = '== '+vTitle+' =='
+    vDokuTemplate = '=== '+vTitle+' ==='
     print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------
 # Show all authors under title if more than one author
 # --------------------------------------------------------
 if len(vAuthorList) > 1:
-    vDokuTemplate = '== Authors: '+vAuthor+' =='
+    vDokuTemplate = '=== Authors: '+vAuthor+' ==='
     print (vDokuTemplate,'\n')
     
 # --------------------------------------------------------
 # Show heading for abstract (if there is an abstract)
 # --------------------------------------------------------
 if len(vAbstract) > 0:
-    vDokuTemplate = '===== Abstract ====='
+    vDokuTemplate = '==== Abstract ===='
     print (vDokuTemplate)
 
 # --------------------------------------------------------
@@ -478,7 +478,7 @@ if vDocType == 'book' or vDocType == 'thesis':
 # --------------------------------------------------------
 # Key ideas
 # --------------------------------------------------------
-vDokuTemplate = '===== Key ideas ====='
+vDokuTemplate = '==== Key ideas ===='
 print (vDokuTemplate)
 vDokuTemplate = '{{page>umfundi:'+vDocType+':keyideas:'+vCiteKey+'}}'
 print (vDokuTemplate)
@@ -505,7 +505,7 @@ print (vDokuTemplate,'\n')
 # --------------------------------------------------------
 # Links here
 # --------------------------------------------------------
-vDokuTemplate = '===== Links here ====='
+vDokuTemplate = '==== Links here ===='
 print (vDokuTemplate)
 vDokuTemplate = '{{backlinks>.}}'
 print (vDokuTemplate,'\n')
@@ -513,7 +513,7 @@ print (vDokuTemplate,'\n')
 # --------------------------------------------------------
 # Keywords
 # --------------------------------------------------------
-vDokuTemplate = '== Keywords: =='
+vDokuTemplate = '=== Keywords: ==='
 print (vDokuTemplate)
 # Replace comma with comma space
 s = vKeywords
