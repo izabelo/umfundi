@@ -11,7 +11,7 @@ fi
 # Process each citekey in the file
 for filename in $(cat $CITEKEYS)
 do
-    ./bibtext.sh $filename
+    ./bibtex.sh $filename
 done
 
 # See if ftp must happen (helps for testing)
