@@ -13,11 +13,6 @@ inputfilename+=sys.argv[2]
 inputfilename+='.bib'
 
 # --------------------------------------------------------
-# Open the input file
-# --------------------------------------------------------
-fin = open(inputfilename, 'r')
-
-# --------------------------------------------------------
 # Initialise all the variables
 # --------------------------------------------------------
 vAbstract = ''
@@ -57,10 +52,15 @@ vVolume = ''
 vYear = 'n.d.'
 
 # --------------------------------------------------------
+# Open the input file
+# --------------------------------------------------------
+f = open(inputfilename, 'r')
+
+# --------------------------------------------------------
 # Read through the file
 # --------------------------------------------------------
 while True:
-    line=fin.readline() # check for EOF
+    line=f.readline() # check for EOF
     if not line: break
 
     if line[0:5] == '@book':
@@ -180,9 +180,9 @@ while True:
 
 # Closing bracket for BibTex items
 vBibTex+='}'
-# --------------------------------------------------------
-# End of while
-# --------------------------------------------------------
+
+# Close the input file
+f.close()
 
 # ========================================================
 # Use extracted fields to produce page elements
@@ -367,8 +367,10 @@ if len(vAbstract) > 0:
 # --------------------------------------------------------
 # Citation
 # --------------------------------------------------------
-vDokuTemplate = '^ Citation ^ '
+vDokuTemplate = '==== Citation ===='
+print (vDokuTemplate)
 
+vDokuTemplate = ''
 # Citation: Book
 if vDocType == 'book':
     # If no author show editors
@@ -410,6 +412,7 @@ else:
     vDokuTemplate+=vAuthorDisplay+' ('+vYear+'). '+vTitle+'.'
     
 # Citation: Show the URL or ASIN (for Kindle books) or DOI
+"""
 vDokuTemplate+=' ^ '
 if len(vAsin) > 0:
     vDokuTemplate+='[['
@@ -434,9 +437,9 @@ else:
     # Citation: PDF File name (TODO: Create as a link to the PDF file)
     #vDokuTemplate+=vFile
     vDokuTemplate+=vDocType.title()
-
-vDokuTemplate+=' ^'
-print (vDokuTemplate)
+"""
+# Print the citation
+print (vDokuTemplate,'\n')
 
 # --------------------------------------------------------
 # Display BibText as hidden
@@ -539,8 +542,3 @@ print (vDokuTemplate,'\n')
 
 # Print No cache for debugging
 print ('~~NOCACHE~~')
-
-# --------------------------------------------------------
-# Close the input file
-# --------------------------------------------------------
-fin.close()
