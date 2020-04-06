@@ -23,8 +23,22 @@ if [ ! -f $filename ]; then
     exit 2
 fi
 
+# See if .bib file contains }}
+warning1=''
+count=$(cat $filename | grep -v ^title | fgrep "}}" | wc -l)
+if [ $count -gt 0 ]; then
+    warning1="contains }}..."
+fi
+
+# See if .bib file contains {\%}
+warning2=''
+count=$(cat $filename | grep -v ^title | fgrep "{\%}" | wc -l)
+if [ $count -gt 0 ]; then
+    warning2="contains {\%}..."
+fi
+
 # Display message
-echo ${CITEKEY}...
+echo ${CITEKEY}...${warning1}${warning2}
 
 # Extract the bibtex data
 python bibtex.py $BIBFILEDIR $CITEKEY > $WWW/$CITEKEY.txt
@@ -62,6 +76,11 @@ if [ ! -f $citekeyfile ]; then
     echo "Error: Move failed - $citekeyfile"
     echo "  * $DATETIME Error: Move failed - $CITEKEY" >> $AUDITFILE
     exit 6
+fi
+
+# See if ftp must happen (helps for testing)
+if [ -f NOFTP ]; then
+    exit 99
 fi
 
 # FTP the file

@@ -14,6 +14,11 @@ do
     ./bibtext.sh $filename
 done
 
+# See if ftp must happen (helps for testing)
+if [ -f NOFTP ]; then
+    exit 99
+fi
+
 # FTP the audit trail
 $HOME/dokuwiki/barbourians/beta.sh wiki audit_trail &> /tmp/audit_trail.out
 # Get the number of bytes transferred
